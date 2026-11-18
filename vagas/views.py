@@ -1,11 +1,10 @@
-from django.shortcuts import render 
-from vagas.dados import VAGAS 
 from django.http import Http404
- 
-def home(request): 
-    return render(request, "vagas/home.html") 
- 
- 
+from django.shortcuts import render
+from vagas.dados import VAGAS
+
+def home(request):
+    return render(request, "vagas/home.html", {"total": len(VAGAS)})
+
 def mural(request):
     modalidade = request.GET.get("modalidade", "")
 
